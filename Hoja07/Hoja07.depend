@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1590953505 source:c:\users\edejuli\desktop\constancias\umg\2020\3er semestre\progra1\hoja07\hoja07\main.cpp
+	<fstream>
+	<iostream>
+	<string>
+	<iomanip>
+
+1590964546 source:c:\users\edejuli\desktop\constancias\umg\2020\3er semestre\progra1\hoja07\hoja07\ejercicio02.cpp
+	<fstream>
+	<iostream>
+	<string>
+	<iomanip>
+	<regex>
+
+1590960758 source:c:\users\edejuli\desktop\constancias\umg\2020\3er semestre\progra1\hoja07\hoja07\ejercicio03.cpp
+	<fstream>
+	<iostream>
+	<string>
+	<iomanip>
+	<regex>
+
+1590964016 source:c:\users\edejuli\desktop\constancias\umg\2020\3er semestre\progra1\hoja07\hoja07\ejercicio01.cpp
+	<fstream>
+	<iostream>
+	<string>
+	<iomanip>
+	<regex>
+	<ctime>
+

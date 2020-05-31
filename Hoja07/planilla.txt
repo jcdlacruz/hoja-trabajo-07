@@ -1,0 +1,5 @@
+1	Juan_Perez	Gerente_Sistemas	1	2500
+2	Maria_Gonzalez	Secretaria_Gerencia	2	2000
+3	Jose_Villagran	Contador	3	3000
+5	Suzana_Morazan	Periodista_matutina	2	6000
+4	Carlos_Moscoso	Coordinador_de_area	3	5000
