@@ -49,7 +49,6 @@ void agregarRegistro03(){
 			goto Registro03;
 		}
 
-		//Registro03 lista[registros03];
 		head03 = NULL;
 		int bandera = 0;
 		string codigo03;
@@ -121,11 +120,6 @@ void agregarRegistro03(){
                         nombre03 = regex_replace(nombre03, regex("\\s+"), "_");
                         nombre03 = regex_replace(nombre03, regex("\\W+"), "");
 
-                        /*lista[i].codigo = codigo03;
-                        lista[i].nombre = nombre03;
-                        lista[i].horas = horas03;
-                        lista[i].departamento = departamento03;
-                        lista[i].minutos = minutos03;*/
                         temp03->codigo = codigo03;
                         temp03->nombre = nombre03;
                         temp03->horas = horas03;
@@ -140,7 +134,7 @@ void agregarRegistro03(){
             }
 		}
 
-		archivo.open(nombreArchivo.c_str(),ios::app);
+		archivo.open(nombreArchivo.c_str(),ios::trunc);
 		if(archivo.fail()){
 			archivo.close();
 			cout<<"No se pudo abrir el archivo";
@@ -148,13 +142,6 @@ void agregarRegistro03(){
 		}
 		system("CLS");
 
-		/*for(int i = 0; i < registros03; i ++){
-            archivo<<lista[i].codigo<<'\t'
-            <<lista[i].nombre<<'\t'
-            <<lista[i].horas<<'\t'
-            <<lista[i].departamento<<'\t'
-            <<lista[i].minutos<<endl;
-		}*/
 		struct Registro03* temp03 = head03;
         while(temp03 != NULL ){
             archivo<<temp03->codigo<<'\t'
@@ -168,4 +155,80 @@ void agregarRegistro03(){
 		archivo.close();
 
 		cout<<"Registros agregados exitosamente."<<endl;
+};
+
+void reporte03(){
+	 fflush(stdin);
+	 system("CLS");
+
+     string codigo03;
+     string nombre03;
+     int horas03;
+     int departamento03;
+     int minutos03;
+     int cont = 0;
+     string mensaje;
+
+     string nombre;
+     int totalHoras = 0;
+     int totalMinutos = 0;
+
+     cout<<"*Trabajando con datos en memoria."<<endl;
+	 cout<<"------------------------"<<endl;
+	 cout<<"        Reporte         "<<endl;
+	 cout<<"------------------------"<<endl;
+	 struct Registro03* temp03 = head03;
+     while(temp03 != NULL ){
+         cont++;
+         codigo03 = temp03->codigo;
+         nombre03 = temp03->nombre;
+         horas03 = temp03->horas;
+         departamento03 = temp03->departamento;
+         minutos03 = temp03->minutos;
+         temp03 = temp03->apuntador03;
+
+         codigo03 = regex_replace(codigo03, regex("_"), " ");
+         nombre03 = regex_replace(nombre03, regex("_"), " ");
+
+         if(departamento03 == 1){mensaje = "Contabilidad";}
+         if(departamento03 == 2){mensaje = "Sistemas";}
+         if(departamento03 == 3){mensaje = "Logistica";}
+
+         cout<<cont<<" | Codigo: "<<codigo03<<" | Nombre: "<<nombre03<<" | Horas laboradas: "<<horas03<<" | Departamento: "<<mensaje<<" | Minutos tarde: "<<minutos03<<" |"<<endl;
+
+         totalMinutos = totalMinutos + minutos03;
+
+         if(horas03 > totalHoras){
+            totalHoras = horas03;
+            nombre = nombre03;
+         }
+     }
+     cout<<"--------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl;
+     cout<<" - Empleado con mayor cantidad de horas laboradas: "<<nombre<<" | Total hora laboradas: "<<totalHoras<<endl;
+     cout<<" - Promedio de minutos a la semana: "<<(float)totalMinutos/5<<" min."<<endl;
+     cout<<"--------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl;
+     cout<<"Listado de empleados puntuales:"<<endl;
+
+     cont = 0;
+     struct Registro03* temp04 = head03;
+     while(temp04 != NULL ){
+         cont++;
+         codigo03 = temp04->codigo;
+         nombre03 = temp04->nombre;
+         horas03 = temp04->horas;
+         departamento03 = temp04->departamento;
+         minutos03 = temp04->minutos;
+         temp04 = temp04->apuntador03;
+
+         codigo03 = regex_replace(codigo03, regex("_"), " ");
+         nombre03 = regex_replace(nombre03, regex("_"), " ");
+
+         if(departamento03 == 1){mensaje = "Contabilidad";}
+         if(departamento03 == 2){mensaje = "Sistemas";}
+         if(departamento03 == 3){mensaje = "Logistica";}
+
+         if(minutos03 == 0){
+            cout<<cont<<" | Codigo: "<<codigo03<<" | Nombre: "<<nombre03<<" | Horas laboradas: "<<horas03<<" | Departamento: "<<mensaje<<" | Minutos tarde: "<<minutos03<<" |"<<endl;
+         }
+     }
 };

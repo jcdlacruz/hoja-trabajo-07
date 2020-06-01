@@ -14,6 +14,10 @@ void agregarRegistro01();
 void agregarRegistro02();
 void agregarRegistro03();
 
+void reporte01();
+void reporte02();
+void reporte03();
+
 int main()
 {
     mp();
@@ -88,7 +92,7 @@ void ejercicio01(){
 					goto MenuEjercicio01;
 					break;
 				case 2:
-					//{modificarVenta();}
+					{reporte01();}
 					system("Pause");
 					system("cls");
 					goto MenuEjercicio01;
@@ -131,7 +135,7 @@ void ejercicio02(){
 					goto MenuEjercicio02;
 					break;
 				case 2:
-					//{generarReporteC();}
+					{reporte02();}
 					system("Pause");
 					system("cls");
 					goto MenuEjercicio02;
@@ -174,7 +178,7 @@ void ejercicio03(){
 					goto MenuEjercicio03;
 					break;
 				case 2:
-					//{generarReporteC();}
+					{reporte03();}
 					system("Pause");
 					system("cls");
 					goto MenuEjercicio03;

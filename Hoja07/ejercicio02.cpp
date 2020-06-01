@@ -49,7 +49,6 @@ void agregarRegistro02(){
 			goto Registro02;
 		}
 
-		//Registro02 lista[registros02];
 		head02 = NULL;
 		int bandera = 0;
 		string codigo02;
@@ -116,11 +115,6 @@ void agregarRegistro02(){
                     puesto02 = regex_replace(puesto02, regex("\\s+"), "_");
                     puesto02 = regex_replace(puesto02, regex("\\W+"), "");
 
-                    /*lista[i].codigo = codigo02;
-                    lista[i].nombre = nombre02;
-                    lista[i].puesto = puesto02;
-                    lista[i].departamento = departamento02;
-                    lista[i].salario = salario02;*/
                     temp02->codigo = codigo02;
                     temp02->nombre = nombre02;
                     temp02->puesto = puesto02;
@@ -134,7 +128,7 @@ void agregarRegistro02(){
             }
 		}
 
-		archivo.open(nombreArchivo.c_str(),ios::app);
+		archivo.open(nombreArchivo.c_str(),ios::trunc);
 		if(archivo.fail()){
 			archivo.close();
 			cout<<"No se pudo abrir el archivo";
@@ -142,13 +136,6 @@ void agregarRegistro02(){
 		}
 		system("CLS");
 
-		/*for(int i = 0; i < registros02; i ++){
-            archivo<<lista[i].codigo<<'\t'
-            <<lista[i].nombre<<'\t'
-            <<lista[i].puesto<<'\t'
-            <<lista[i].departamento<<'\t'
-            <<lista[i].salario<<endl;
-		}*/
 		struct Registro02* temp02 = head02;
         while(temp02 != NULL ){
             archivo<<temp02->codigo<<'\t'
@@ -162,4 +149,48 @@ void agregarRegistro02(){
 		archivo.close();
 
 		cout<<"Registros agregados exitosamente."<<endl;
+};
+
+void reporte02(){
+	 fflush(stdin);
+	 system("CLS");
+
+	 string codigo02;
+     string nombre02;
+     string puesto02;
+     int departamento02;
+     float salario02;
+     string mensaje;
+     int cont = 0;
+     float total;
+
+     system("CLS");
+     cout<<"*Trabajando con datos en memoria."<<endl;
+	 cout<<"------------------------"<<endl;
+	 cout<<"        Reporte         "<<endl;
+	 cout<<"------------------------"<<endl;
+	 struct Registro02* temp02 = head02;
+     while(temp02 != NULL ){
+         cont++;
+         codigo02 = temp02->codigo;
+         nombre02 = temp02->nombre;
+         puesto02 = temp02->puesto;
+         departamento02 = temp02->departamento;
+         salario02 = temp02->salario;
+         temp02 = temp02->apuntador02;
+
+         total = total + salario02;
+
+         codigo02 = regex_replace(codigo02, regex("_"), " ");
+         nombre02 = regex_replace(nombre02, regex("_"), " ");
+         puesto02 = regex_replace(puesto02, regex("_"), " ");
+
+         if(departamento02 == 1){mensaje = "Gerencia";}
+         if(departamento02 == 2){mensaje = "Administracion";}
+         if(departamento02 == 3){mensaje = "Produccion";}
+
+         cout<<cont<<" | Codigo: "<<codigo02<<" | Nombre: "<<nombre02<<" | Puesto: "<<puesto02<<" | Departamento: "<<mensaje<<" | Salario: Q"<<salario02<<" |"<<endl;
+     }
+     cout<<endl;
+     cout<<"Total en planilla: Q"<<total<<endl;
 };

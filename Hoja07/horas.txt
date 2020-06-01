@@ -1,5 +1,5 @@
-1	Amilcar_Montejo	50	1	100
-2	Madonna_Cabrera	25	2	25
-5	Estafani_Rouda	95	2	500
-4	Gwen_Stefan	80	1	10
-3	Ricardo_Arjona	120	3	0
+a05	Kinfu_Panda	50	1	100
+a04	Wysin_y_Yandel	250	1	0
+a03	Pin_Plata	200	3	0
+a02	Paquita_la_del_Barrio	100	3	10
+a01	Frank_Sinatra	250	1	0
